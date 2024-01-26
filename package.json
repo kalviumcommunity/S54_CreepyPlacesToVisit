@@ -1,0 +1,12 @@
+{
+  "name": "s54_creepyplacestovisit",
+  "version": "1.0.0",
+  "description": "Welcome to Creepie Travels, a project mainly for exploring and documenting some of the creepiest places around the world. Whether you're an adventurous traveler with a taste for the thrilling adventures so this is mainly for the those who want to travel some places which are little different from all other as many go to places where there are many people but here there will be places where mainly no one wants to go.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Manpreet",
+  "license": "ISC"
+}

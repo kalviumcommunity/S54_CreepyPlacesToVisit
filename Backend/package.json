@@ -8,6 +8,7 @@
   "author": "Manpreet",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "mongoose": "^8.1.1",
     "vercel": "^33.2.0"

@@ -1,0 +1,91 @@
+.backg-img {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh-G_tIXGyPMfd5css73uKjewAMTNtspYChw&usqp=CAU");
+  opacity: 0.05;
+  top: 0;
+  position: fixed;
+}
+
+.backg-color {
+  z-index: -2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(11, 21, 45);
+  background:linear-gradient(to right, #252528, #252325, #252122, #231f1e, #201e1c, #1f1e1c, #1f1e1b, #1e1e1b, #201f1c, #21211d, #23221e, #25231f);
+  background-size: 100% 100%;
+}
+
+.creepy-Travel-Container{
+  width: 100vw;
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  margin-top: 8vmax;
+  gap: 8vmax;
+}
+.creepy-image {
+  width: 30vmax;
+  margin-left: 6vmax;
+}
+.creepy-image video{
+  border-radius: 30px;
+}
+.creepy-tagline{
+  color: white;
+  font-family: 'Riky Vampdator Normal', sans-serif;
+  font-size: 4.5vmax;
+}
+.button_creepy_main {
+  display: flex;
+  margin-left: 45vmax;
+}
+
+.creepy-button {
+  position: relative;
+  background-color: #e36565;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 10vmax;
+  height: 3vmax;
+  text-align: center;
+  line-height: 3vmax;
+  transition: background-color 0.3s ease; 
+  border-radius: 20px;
+}
+
+.creepy-button:hover {
+  background-color: #e30000;
+}
+
+.creepy-button::before,
+.creepy-button::after {
+  content: "Explore";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: #ffffff;
+  opacity: 0;
+  animation: blink 1s infinite alternate;
+}
+
+.creepy-button::after {
+  animation-delay: 0.5s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

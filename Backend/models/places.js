@@ -26,4 +26,4 @@ const Places = new mongoose.model("Places", {
   }
 })
 
-module.exports = Place
+module.exports = Places

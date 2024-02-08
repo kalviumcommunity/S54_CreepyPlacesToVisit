@@ -1,5 +1,23 @@
 const mongoose = require("mongoose");
+const express = require ('express')
 const Places = require("../models/places");
+require("dotenv").config({path:"../.env"})
+const app = express();
+
+async function main() {
+  await mongoose.connect(
+    process.env.MONGO_URI
+  );
+}
+
+main()
+  .then(() => {
+   
+    console.log("Connection created Successfully!");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const data = [
   new Places({
@@ -14,7 +32,6 @@ const data = [
     image: "https://d3f7q2msm2165u.cloudfront.net/aaa-content/user/files/2023/Blog/Sonia/Screen%20Shot%202023-10-23%20at%201.36.30%20PM-min.png",
     description: "A decrepit mansion shrouded in mystery, its dark corridors and shadowy rooms hold secrets of a past long forgotten. Ghostly apparitions and strange phenomena are said to haunt its halls.",
     image: "https://d3f7q2msm2165u.cloudfront.net/aaa-content/user/files/2023/Blog/Sonia/Screen%20Shot%202023-10-23%20at%201.36.30%20PM-min.png",
-    user: "sampleuser124",
     user: "sampleuser124",
     time: new Date("2023-07-22"),
   }),

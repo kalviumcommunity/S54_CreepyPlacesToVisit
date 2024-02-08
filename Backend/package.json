@@ -15,6 +15,7 @@
   "author": "Manpreet Singh Arora",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "mongo": "^0.1.0",

@@ -3,6 +3,7 @@ const express = require("express");
 const Place = require("./models/places");
 const app = express();
 require('dotenv').config();
+const router = express.Router()
 
 app.use(express.json())
 
@@ -18,19 +19,19 @@ main()
     })
     .catch((err) => console.log("Error Connecting!", err));
 
-app.get("/", async (req, res)=>{
+router.get("/", async (req, res)=>{
     await Place.find().then((data)=>{returnData = data});
     res.send(returnData);
 })
 
-app.post("/", async (req, res) => {
+router.post("/", async (req, res) => {
     let insertData = new Place(req.body);
     insertData.save()
         .then(() => res.send(`Added Data`))
         .catch((err) => res.status(500).send(err));
 });
 
-app.put("/:title", async (req, res) => {
+router.put("/:title", async (req, res) => {
     const { title } = req.params;
     const newTitle = req.body.title;
     try {
@@ -47,7 +48,7 @@ app.put("/:title", async (req, res) => {
 });
 
 
-app.delete("/", async(req, res)=>{
+router.delete("/", async(req, res)=>{
     try {
         let toDelete = req.body.title;
         let del = await Place.deleteOne({title:toDelete})
@@ -62,7 +63,4 @@ app.delete("/", async(req, res)=>{
     }
 })
 
-const port = 8080;
-app.listen(port, ()=>{
-    console.log("Successfully connected to ", port);
-})
+module.exports=router

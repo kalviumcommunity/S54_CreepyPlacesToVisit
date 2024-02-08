@@ -72,7 +72,7 @@ const data = [
   new Places({
     title: "Sedlec Ossuary",
     location: "Kutná Hora, Czech Republic",
-    image: "https://sedlecossuary.com/wp-content/uploads/2022/09/Sedlec_Ossuary_chandelier.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF0QG6AZDYxcb7Ju1z6eLT04wFOZN1_N35nqOm-nHq7Bf9T_E59Lqa4jboxA_0MChBz_s&usqp=CAU",
     description: "Located beneath the Cemetery Church of All Saints in Kutná Hora, Czech Republic, the Sedlec Ossuary is a chapel adorned with human bones. Its macabre decorations include a chandelier made entirely of bones.",
     user: "sampleuser129",
     time: new Date("2024-05-27"),

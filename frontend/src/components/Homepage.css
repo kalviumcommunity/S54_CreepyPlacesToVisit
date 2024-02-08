@@ -47,7 +47,7 @@
 
 .creepy-button {
   position: relative;
-  background-color: #e36565;
+  background-color: #c94f4f;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -67,6 +67,7 @@
 .creepy-button::before,
 .creepy-button::after {
   content: "Explore";
+  font-family: 'Riky Vampdator Normal', sans-serif;
   position: absolute;
   top: 50%;
   left: 50%;

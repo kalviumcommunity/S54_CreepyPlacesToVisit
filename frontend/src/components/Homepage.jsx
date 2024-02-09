@@ -5,6 +5,7 @@ import CreepyImage from './../assets/Cre (1).jpeg_swing.mp4'
 import Card from "./Card";
 import LandingPage from "./LandingPage";
 import CardList from "./CardList";
+import { Routes , Route } from "react-router-dom";
 const Homepage = () => {
   return (
     <div>
@@ -13,9 +14,10 @@ const Homepage = () => {
         </div>
       </div>
           <Navbar/>
-          {/* <LandingPage/> */}
-          {/* <Card/> */}
-          <CardList/>
+          <Routes>
+            <Route path="/" element={<LandingPage/>}/>
+            <Route path="/list" element={<CardList/>}/>
+          </Routes>
     </div>
   );
 };

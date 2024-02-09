@@ -1,6 +1,7 @@
 import React from 'react'
 import './Homepage.css'
 import CreepyImage from './../assets/Cre (1).jpeg_swing.mp4'
+import {Link} from 'react-router-dom'
 
 const LandingPage = () => {
   return (
@@ -17,8 +18,10 @@ const LandingPage = () => {
 
           </div>
           <div className="button_creepy_main">
-            <button className="creepy-button"></button>
-          </div>
+        <Link to="/list" style={{ textDecoration: "none" }}>
+          <button className="creepy-button"></button>
+        </Link>
+      </div>
     </div>
   )
 }

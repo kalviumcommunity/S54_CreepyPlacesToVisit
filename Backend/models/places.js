@@ -17,12 +17,10 @@ const Places = new mongoose.model("Places", {
     type: String,
     required: true,
   },
-  
   location: {
     type: String,
     required: true,
   },
-  
   likes: {
     type: Number,
     default: 0

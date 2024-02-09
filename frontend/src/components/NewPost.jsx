@@ -25,7 +25,7 @@ export default function NewPost() {
   const FormSubmitHandler = (data)=>{
     axios.post("https://s54-creepyplaces.onrender.com/post",data).then(()=>{
       console.log("ADDED")
-      navigate("/listings")
+      navigate("/list")
     }).catch((err)=>{
       console.log(err)
     })

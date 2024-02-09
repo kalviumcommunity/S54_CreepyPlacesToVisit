@@ -49,7 +49,8 @@
 }
 .login,
 .home,
-.about {
+.about, 
+.Add{
   font-size: 1.5vmax;
   font-family: "Creepster", system-ui;
   letter-spacing: 0.2vmax;
@@ -63,7 +64,8 @@
 
 .login::after,
 .home::after,
-.about::after {
+.about::after, 
+.Add::after{
   content: "";
   position: absolute;
   width: 0;
@@ -77,12 +79,14 @@
 
 .login:hover,
 .home:hover,
-.about:hover {
+.about:hover, 
+.Add:hover {
   color: #ff4141; /* Adjust the color as needed */
 }
 
 .login:hover::after,
 .home:hover::after,
-.about:hover::after {
+.about:hover::after, 
+.Add:hover::after {
   width: 100%;
 }

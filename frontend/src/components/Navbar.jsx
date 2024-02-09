@@ -13,6 +13,7 @@ const Navbar = () => {
         <Link to="/" className='home' style={{textDecoration:"none"}}>Home</Link>
         <Link to="/about" className='about' style={{textDecoration:"none"}}>About</Link>
         <Link to="/login" className='login' style={{textDecoration:"none"}}>Login</Link>
+        <Link to="/list/newpost" className='Add' style={{textDecoration:"none"}}>Add Post</Link>
       </div>
     </div>
     <div>

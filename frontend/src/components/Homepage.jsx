@@ -6,6 +6,7 @@ import Card from "./Card";
 import LandingPage from "./LandingPage";
 import CardList from "./CardList";
 import { Routes , Route } from "react-router-dom";
+import NewPost from "./NewPost";
 const Homepage = () => {
   return (
     <div>
@@ -17,7 +18,10 @@ const Homepage = () => {
           <Routes>
             <Route path="/" element={<LandingPage/>}/>
             <Route path="/list" element={<CardList/>}/>
+            <Route path="/list/newpost" element={<NewPost/>}/>
+
           </Routes>
+
     </div>
   );
 };

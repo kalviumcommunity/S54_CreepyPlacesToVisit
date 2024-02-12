@@ -25,13 +25,11 @@ const iconProps = {
   isRound: true,
 };
 
-const MainScreen = ({data}) => {
+const MainScreen = ({ data }) => {
   console.log(data);
   return (
     <VStack spacing={5}>
-      <motion.div
-        whileHover={{ y: -5, scale: 1.1 }}
-      >
+      <motion.div whileHover={{ y: -5, scale: 1.1 }}>
         <Box boxShadow="xl" _hover={{ boxShadow: "lg" }}>
           <Image
             _groupHover={{ width: "20rem", height: "13rem" }}
@@ -47,7 +45,7 @@ const MainScreen = ({data}) => {
         textTransform="capitalize"
         noOfLines={2}
       >
-       {data.title}
+        {data.title}
       </Heading>
 
       <Text
@@ -67,7 +65,7 @@ const MainScreen = ({data}) => {
         _groupHover={{ display: "none" }}
         display="block"
       >
-       {data.user}
+        {data.user}
       </Text>
 
       <Fade in>
@@ -78,13 +76,13 @@ const MainScreen = ({data}) => {
           _groupHover={{ display: "block" }}
           display="none"
         >
-         {data.description}
+          {data.description}
         </Text>
       </Fade>
       <Divider />
       <Flex direction="row" gap={50}>
         <Button flex="1" variant="ghost" leftIcon={<BiLike />}>
-           Like {data.likes}
+          Like {data.likes}
         </Button>
         <Button flex="1" variant="ghost" leftIcon={<BiChat />}>
           Comment {data.comments}

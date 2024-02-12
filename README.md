@@ -21,4 +21,5 @@ Places Like
 
 
 * ###### Backend Deployed Link - https://s54-creepyplaces.onrender.com/
-* ###### Frontend Deployed Link - https://creepytravels.vercel.app/
+* ###### Frontend Deployed Link - https://creepytravel.vercel.app/
+

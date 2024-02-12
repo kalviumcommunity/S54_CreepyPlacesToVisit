@@ -9,3 +9,30 @@
 
 
 
+.form-parent {
+  margin-top: 9vmax;
+  flex: 1;
+  padding: 5vmin 10vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70vw;
+  padding: 2vmin;
+  border-radius: 10px;
+  background-color: rgb(206, 211, 215);
+  gap: 2vmin;
+}
+.err{
+  color: red;
+  font-size: 1.5vmin;
+  margin-top: 0.5qvmin;
+}
+
+
+

@@ -8,9 +8,8 @@ import {
   Text,
   Button
 } from "@chakra-ui/react";
-import {Link} from 'react-router-dom'
 import axios from "axios"
-import './NewPost.css'
+
 
 export default function NewPost() {
   const navigate = useNavigate()

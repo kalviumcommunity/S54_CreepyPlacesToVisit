@@ -1,4 +1,4 @@
-.form-parent {
+ .form-parent {
   margin-top: 9vmax;
   flex: 1;
   padding: 5vmin 10vmin;
@@ -20,5 +20,5 @@
 .err{
   color: red;
   font-size: 1.5vmin;
-  margin-top: 0.5qvmin;
+  margin-top: 0.5vmin;
 }

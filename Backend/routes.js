@@ -24,7 +24,17 @@ router.get("/", async (req, res) => {
   res.send(returnData);
 });
 
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  await Place.findById(id).then((data) => {
+    returnData = data;
+  });
+  res.send(returnData);
+});
+
+
 router.post("/", async (req, res) => {
+  
   let insertData = new Place(req.body);
   insertData
     .save()
@@ -32,14 +42,11 @@ router.post("/", async (req, res) => {
     .catch((err) => res.status(500).send(err));
 });
 
-router.put("/:title", async (req, res) => {
-  const { title } = req.params;
-  const newTitle = req.body.title;
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const newData = req.body;
   try {
-    const updatedUser = await Place.findOneAndUpdate(
-      { title: title },
-      { title: newTitle }
-    );
+    const updatedUser = await Place.findByIdAndUpdate(id,newData);
     if (updatedUser) {
       res.send(`Updated`);
     } else {
@@ -51,10 +58,10 @@ router.put("/:title", async (req, res) => {
   }
 });
 
-router.delete("/", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
-    let toDelete = req.body.title;
-    let del = await Place.deleteOne({ title: toDelete });
+    const { id } = req.params;
+    let del = await Place.findByIdAndDelete(id);
     if (del.deletedCount == 0) {
       res.status(404).send("Could not Find user with the title");
     } else {

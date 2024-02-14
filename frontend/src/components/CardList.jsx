@@ -7,7 +7,7 @@ const CardList = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     axios
-      .get("https://s54-creepyplaces.onrender.com/post")
+      .get("https://s54-creepyplace.onrender.com/post")
       .then((data) => {
         console.log(data.data);
         setPosts(data.data);

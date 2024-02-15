@@ -22,7 +22,7 @@ export default function NewPost() {
   } = useForm();
   // console.log(watch())
   const FormSubmitHandler = (data)=>{
-    axios.post("https://s54-creepyplaces.onrender.com/post",data).then(()=>{
+    axios.post("https://s54-creepyplace.onrender.com/post",data).then(()=>{
       console.log("ADDED")
       navigate("/list")
     }).catch((err)=>{

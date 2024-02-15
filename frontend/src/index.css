@@ -2,13 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
-
-
-
 .form-parent {
   margin-top: 9vmax;
   flex: 1;
@@ -16,9 +13,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
-.form{
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,11 +25,100 @@
   background-color: rgb(206, 211, 215);
   gap: 2vmin;
 }
-.err{
+.err {
   color: red;
   font-size: 1.5vmin;
   margin-top: 0.5vmin;
 }
 
+/* Edit.JSX CSS Here  */
 
+.det-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 3vmin;
+  background-color: #cab9b9;
+  color: black;
+  width: 85vmax;
+  height: 55vmin;
+  margin-left: 15vmin;
+  margin-top: 15vmax;
+  border-radius: 10px;
+}
+.det-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80vmax;
+  font-family: vinque;
+}
+
+.det-image > img {
+  border-radius: 10px;
+  width: 35vw;
+  height: 40vh;
+}
+
+.det-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4vmin;
+  width: 50vw;
+  text-align: center;
+}
+.det-title {
+  font-size: 3vmax;
+  text-decoration: underline;
+}
+.det-location {
+  font-size: 1.5vmax;
+}
+.det-description {
+  font-size: 2vmin;
+}
+.det-button {
+  width: 40vmin;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+}
+.button_Edit {
+  font-family: "Creepster", system-ui;
+  font-size: 4vmin;
+}
+.button_Edit {
+  font-family: "Creepster", system-ui;
+  letter-spacing: 0.2vmax;
+  color: black;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  cursor: pointer;
+}
+
+.button_Edit::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4141; /* Adjust the color as needed */
+  transition: width 0.3s ease;
+}
+
+.button_Edit:hover {
+  color: #ff4141; /* Adjust the color as needed */
+}
+
+.button_Edit:hover::after {
+  width: 100%;
+}
+
+/* Edit Form Jsx Styling here  */
 

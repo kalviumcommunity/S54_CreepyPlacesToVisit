@@ -59,17 +59,16 @@ router.put("/:id", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-  try {
+  try{
     const { id } = req.params;
     let del = await Place.findByIdAndDelete(id);
-    if (del.deletedCount == 0) {
-      res.status(404).send("Could not Find user with the title");
-    } else {
-      res.send(`Deleted ${toDelete}`);
-    }
-  } catch {
-    res.status(500).send("Internal Server Error Occured.");
+    res.send(`Deleted`);
   }
-});
+  catch{
+      res.status(404).send("Could not Find user with the title");
+  }
+
+  }
+);
 
 module.exports = router;

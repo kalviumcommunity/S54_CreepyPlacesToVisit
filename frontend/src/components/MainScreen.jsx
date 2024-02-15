@@ -18,6 +18,7 @@ import {
 import { BiLike, BiChat } from "react-icons/bi";
 // Here we have used framer-motion package for animations
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const iconProps = {
   variant: "ghost",
@@ -27,6 +28,10 @@ const iconProps = {
 
 const MainScreen = ({ data }) => {
   console.log(data);
+  const navigate = useNavigate();
+  const cardClick = () => {
+    navigate(`/list/${data._id}`);
+  };
   return (
     <VStack spacing={5}>
       <motion.div whileHover={{ y: -5, scale: 1.1 }}>
@@ -36,6 +41,7 @@ const MainScreen = ({ data }) => {
             size="xl"
             src={data.image}
             transition={{ duration: 0.3 }}
+            onClick={cardClick}
           />
         </Box>
       </motion.div>

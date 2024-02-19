@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const Place = require("./models/places");
+const { postValidation } = require("./utils/postValidation");
 const app = express();
 require("dotenv").config();
 const router = express.Router();
@@ -17,6 +18,14 @@ main()
   })
   .catch((err) => console.log("Error Connecting!", err));
 
+  const validatePost = (req, res, next) => {
+    let { error } = postValidation.validate(req.body);
+    if (error) {
+      res.status(404).send(error);
+    } else {
+      next();
+    }
+  };
 router.get("/", async (req, res) => {
   await Place.find().then((data) => {
     returnData = data;
@@ -33,7 +42,7 @@ router.get("/:id", async (req, res) => {
 });
 
 
-router.post("/", async (req, res) => {
+router.post("/",validatePost, async (req, res) => {
   
   let insertData = new Place(req.body);
   insertData

@@ -5,8 +5,11 @@ const { postValidation } = require("./utils/postValidation");
 const app = express();
 require("dotenv").config();
 const router = express.Router();
+const user = express.Router();
+const User = require("./models/user.js");
 
 router.use(express.json());
+user.use(express.json())
 
 async function main() {
   await mongoose.connect(process.env.MONGO_URI);
@@ -33,6 +36,39 @@ router.get("/", async (req, res) => {
   res.send(returnData);
 });
 
+user.get("/", async (req, res) => {
+  await Place.find().then((data) => {
+    returnData = data;
+  });
+  res.send(returnData);
+});
+
+user.post("/", async(req, res)=>{
+  let newData = new User(req.body)
+  await newData.save()
+  res.send("User Created!")
+})
+
+user.post(
+  "/login",async (req, res) => {
+    let { username, password } = req.body;
+    console.log('====================================');
+    console.log(req.body);
+    console.log('====================================');
+    let result = await User.find({ username: username });
+    if (result.length == 0) {
+      throw new Error("User not found!");
+    } else {
+      let savedPassword = result[0].password;
+      if (savedPassword != password) {
+        res.status(401)
+      } else {
+        res.send("LOGGED IN");
+      }
+    }
+  }
+);
+
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   await Place.findById(id).then((data) => {
@@ -40,7 +76,6 @@ router.get("/:id", async (req, res) => {
   });
   res.send(returnData);
 });
-
 
 router.post("/",validatePost, async (req, res) => {
   
@@ -76,8 +111,7 @@ router.delete("/:id", async (req, res) => {
   catch{
       res.status(404).send("Could not Find user with the title");
   }
-
   }
 );
 
-module.exports = router;
+module.exports = {router, user};

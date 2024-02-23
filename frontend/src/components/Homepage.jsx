@@ -9,6 +9,8 @@ import { Routes, Route } from "react-router-dom";
 import NewPost from "./NewPost";
 import Edit from "./Edit";
 import EditForm from "./EditForm";
+import Login from "./Login";
+import Signup from "./Signup";
 const Homepage = () => {
   return (
     <div>
@@ -22,6 +24,8 @@ const Homepage = () => {
         <Route path="/list/newpost" element={<NewPost />} />
         <Route path="/list/:id" element={<Edit />} />
         <Route path="/list/edit/:id" element={<EditForm />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );

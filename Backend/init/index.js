@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const express = require ('express')
 const Places = require("../models/places");
+const User = require("../models/user");
 require("dotenv").config({path:"../.env"})
 const app = express();
 
@@ -121,7 +122,30 @@ location:"Paris, France",
   }),
 ];
 
-Places.insertMany(data)
+const users = [
+  new User({
+    username: "Testuser1",
+    password:"testpass1"
+  }),
+  new User({
+    username: "Testuser2",
+    password:"testpass2"
+  }),
+  new User({
+    username: "Testuser3",
+    password:"testpass3"
+  }),
+  new User({
+    username: "Testuser4",
+    password:"testpass4"
+  }),
+  new User({
+    username: "Testuser5",
+    password:"testpass5"
+  })
+]
+
+User.insertMany(users)
   .then((docs)=>{
     console.log('====================================');
     console.log("Data Pushed");

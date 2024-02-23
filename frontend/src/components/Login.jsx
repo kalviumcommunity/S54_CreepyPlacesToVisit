@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -16,18 +16,15 @@ export default function Login() {
   const {
     register,
     handleSubmit,
-    watch,
-    reset,
     formState: { errors },
   } = useForm();
-  // console.log(watch())
+  
   const FormSubmitHandler = (formData) => {
-    // console.log(formData);
     const id = toast.loading("Logging In...");
     setTimeout(() => {
         axios
           .post("http://localhost:8012/users/login", formData)
-          .then(() => {
+          .then((result) => {
             console.log("ADDED");
             toast.update(id, {
               render: "Logged In!",
@@ -35,13 +32,13 @@ export default function Login() {
               isLoading: false,
             });
             setCookie("username", formData.username, 365);
+            setCookie("auth-token", result.data, 365)
             setLogin(loginCheck())
             setTimeout(() => {
               navigate("/list");
             }, 1200);
           })
           .catch((err) => {
-            console.log(err.response.status);
             if(err.response.status==404){
                 toast.update(id, {
                   render: "Username not found",
@@ -114,7 +111,9 @@ export default function Login() {
           Submit
         </Button>
       </form>
-      <Link to="/signup" style={{fontSize:"2vmin",color:"lightblue",textDecoration:"underline"}}>Not a member? Signup here...</Link>
+      <Link to="/signup" style={{fontSize:"2vmin",color:"lightblue",textDecoration:"underline",
+      marginTop:"1vmin"
+    }}>Not a member? Signup here...</Link>
     </div>
   );
 }

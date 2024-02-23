@@ -29,7 +29,7 @@ const CardList = () => {
         marginTop={100}
       >
         {posts.map((e, i) => {
-          return <Card data={posts[i]} />;
+          return <Card data={posts[i]} key={i}/>;
         })}
       </Grid>
     </div>

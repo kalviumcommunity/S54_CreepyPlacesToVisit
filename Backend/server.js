@@ -2,7 +2,7 @@ const express = require ('express')
 const app = express();
 const port = 8012;
 const mongoose = require("mongoose");
-const router = require('./routes');
+const {router, user} = require('./routes');
 const cors = require("cors");
 require("dotenv").config()
 
@@ -13,6 +13,7 @@ async function main() {
 }
 app.use(cors())
 app.use("/post",router)
+app.use("/users", user)
 app.get('/',(req,res)=>{
   main()
   .then(() => {

@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { AppContext } from "./Context";
+import { deleteCookie } from "../utils/cookies";
+import { loginCheck } from "../utils/loginCheck";
 
 const Navbar = () => {
+  const {login,setLogin} = useContext(AppContext)
+  const logout = () => {
+    deleteCookie("username")
+    deleteCookie("auth-token")
+    setLogin(loginCheck());
+  };
+  const loginBtn = () => {
+    if (login) {
+      return (
+        <div className="option" onClick={logout}>
+          Logout
+        </div>
+      );
+    } else {
+      return (
+        <Link to="/login">
+          <div className="option">Sign-Up/Log-In</div>
+        </Link>
+      );
+    }
+  };
   return (
     <div className="navbar-container">
       <div className="navbar">
@@ -16,26 +40,13 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            to="/about"
-            className="about"
-            style={{ textDecoration: "none" }}
-          >
-            About
-          </Link>
-          <Link
-            to="/login"
-            className="login"
-            style={{ textDecoration: "none" }}
-          >
-            Login
-          </Link>
-          <Link
             to="/list/newpost"
             className="Add"
             style={{ textDecoration: "none" }}
-          >
+            >
             Add Post
           </Link>
+            {loginBtn()}
         </div>
       </div>
       <div></div>

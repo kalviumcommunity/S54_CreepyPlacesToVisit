@@ -27,7 +27,7 @@ export default function Signup() {
     setTimeout(() => {
       axios
         .post("http://localhost:8012/users", formData)
-        .then(() => {
+        .then((result) => {
           console.log("ADDED");
           toast.update(id, {
             render: "Signed Up",
@@ -35,6 +35,7 @@ export default function Signup() {
             isLoading: false,
           });
           setCookie("username", formData.username, 365);
+          setCookie("auth-token",result.data,365)
           setLogin(loginCheck())
           setTimeout(() => {
             navigate("/list");
@@ -100,7 +101,8 @@ export default function Signup() {
           Submit
         </Button>
       </form>
-      <Link to="/login" style={{fontSize:"2vmin",color:"lightblue",textDecoration:"underline"}}>Already a user?Login here...</Link>
+      <Link to="/login" style={{fontSize:"2vmin",color:"lightblue",textDecoration:"underline",
+      marginTop:"1vmin"}}>Already a user?Login here...</Link>
     </div>
   );
 }

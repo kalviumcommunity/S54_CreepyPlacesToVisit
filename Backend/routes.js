@@ -7,6 +7,7 @@ require("dotenv").config();
 const router = express.Router();
 const user = express.Router();
 const User = require("./models/user.js");
+var jwt = require("jsonwebtoken");
 
 router.use(express.json());
 user.use(express.json())
@@ -20,6 +21,20 @@ main()
     console.log("Connection Successful!");
   })
   .catch((err) => console.log("Error Connecting!", err));
+
+  const jwtVerify = (req, res, next) => {
+    try {
+      let { authorization } = req.headers;
+      let result = jwt.verify(authorization, process.env.JWT_PASS);
+      console.log(result.username);
+      next();
+    } catch (err) {
+      throw new ExpressError(
+        403,
+        "Not authorised to access this route without correct auth token"
+      );
+    }
+  };
 
   const validatePost = (req, res, next) => {
     let { error } = postValidation.validate(req.body);
@@ -46,7 +61,8 @@ user.get("/", async (req, res) => {
 user.post("/", async(req, res)=>{
   let newData = new User(req.body)
   await newData.save()
-  res.send("User Created!")
+  let token = jwt.sign({ username: req.body.userName }, process.env.JWT_PASS);
+  res.send(token);
 })
 
 user.post(
@@ -63,7 +79,11 @@ user.post(
       if (savedPassword != password) {
         res.status(401)
       } else {
-        res.send("LOGGED IN");
+        let token = jwt.sign(
+          { username: req.body.username },
+          process.env.JWT_PASS
+        );
+        res.send(token)
       }
     }
   }
@@ -77,7 +97,7 @@ router.get("/:id", async (req, res) => {
   res.send(returnData);
 });
 
-router.post("/",validatePost, async (req, res) => {
+router.post("/",jwtVerify, validatePost, async (req, res) => {
   
   let insertData = new Place(req.body);
   insertData

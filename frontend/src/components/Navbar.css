@@ -50,6 +50,7 @@
 .login,
 .home,
 .about, 
+.option,
 .Add{
   font-size: 1.5vmax;
   font-family: "Creepster", system-ui;
@@ -65,6 +66,7 @@
 .login::after,
 .home::after,
 .about::after, 
+.option::after, 
 .Add::after{
   content: "";
   position: absolute;
@@ -80,13 +82,15 @@
 .login:hover,
 .home:hover,
 .about:hover, 
-.Add:hover {
+.Add:hover 
+.option:hover {
   color: #ff4141; /* Adjust the color as needed */
 }
 
 .login:hover::after,
 .home:hover::after,
 .about:hover::after, 
-.Add:hover::after {
+.Add:hover::after 
+.option:hover::after {
   width: 100%;
 }

@@ -120,5 +120,31 @@
   width: 100%;
 }
 
-/* Edit Form Jsx Styling here  */
+/* User Main Jsx Edit  */
 
+.users-parent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5vmin;
+  align-items: center;
+  padding: 5vmin;
+  font-family: 'Riky Vampdator Normal', sans-serif;
+}
+.users {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10vmin;
+  font-family: 'Riky Vampdator Normal', sans-serif;
+}
+.allUser{
+  font-size: 4vmax;
+  color: white;
+  text-decoration: underline;
+  margin-top: 10vmin;
+  font-family: 'Riky Vampdator Normal', sans-serif;
+}
+
+.listings-parent{
+  margin-top: 10vmin;
+}

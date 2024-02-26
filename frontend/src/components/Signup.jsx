@@ -26,7 +26,7 @@ export default function Signup() {
     const id = toast.loading("Signing Up...");
     setTimeout(() => {
       axios
-        .post("http://localhost:8012/users", formData)
+        .post("https://s54-creepyplace.onrender.com/users", formData)
         .then((result) => {
           console.log("ADDED");
           toast.update(id, {

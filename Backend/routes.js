@@ -8,6 +8,7 @@ const router = express.Router();
 const user = express.Router();
 const User = require("./models/user.js");
 var jwt = require("jsonwebtoken");
+const Places = require("./models/places");
 
 router.use(express.json());
 user.use(express.json())
@@ -51,11 +52,36 @@ router.get("/", async (req, res) => {
   res.send(returnData);
 });
 
+router.get(
+  "/user/:user",
+  async (req, res) => {
+    try {
+      let { user } = req.params;
+      let result = await Place.find({ user: user });
+
+      // Check if result array is empty
+      if (result.length === 0) {
+        // If no posts found, send 404 response
+        res.status(404).send("No posts associated with this user found");
+      } else {
+        // If posts found, send the result
+        res.send(result);
+        console.log("Res", result);
+      }
+    } catch (err) {
+      // Handle other errors
+      console.log(err);
+      res.status(500).send("Internal server error");
+    }
+  }
+);
+
 user.get("/", async (req, res) => {
-  await Place.find().then((data) => {
+  await User.find().then((data) => {
     returnData = data;
   });
   res.send(returnData);
+  
 });
 
 user.post("/", async(req, res)=>{

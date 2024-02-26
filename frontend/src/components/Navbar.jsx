@@ -46,6 +46,8 @@ const Navbar = () => {
             >
             Add Post
           </Link>
+            <Link to={"/users"}  className="User"
+            style={{ textDecoration: "none" }}><div>users</div></Link>
             {loginBtn()}
         </div>
       </div>
